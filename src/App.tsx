@@ -4,8 +4,11 @@ import React from 'react';
 // Styles
 import GlobalStyle from './theme/globalStyle';
 
+// Pages
+import HomeScreen from './pages/HomeScreen';
+
 // Components
-import { Layout } from './components/layout/Layout';
+import Layout from './components/layout/Layout';
 
 interface AppProps {}
 
@@ -14,7 +17,7 @@ export const App: React.FC<AppProps> = () => {
 		<>
 			<GlobalStyle />
 			<Layout>
-				<h1>Hello World! 🚚</h1>
+				<HomeScreen />
 			</Layout>
 		</>
 	);
