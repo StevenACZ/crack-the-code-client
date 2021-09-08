@@ -51,7 +51,7 @@ export const {
 	courseListReset,
 } = courseListSlice.actions;
 
-export const selectCourseListSongs = (state: RootState) =>
+export const selectCourseListCourses = (state: RootState) =>
 	state.courseList.courses;
 export const selectCourseListLoading = (state: RootState) =>
 	state.courseList.loading;
