@@ -61,6 +61,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
   }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 `;
 
 export default GlobalStyle;
