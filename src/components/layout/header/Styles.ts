@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-	grid-area: header;
 	height: 100px;
 	padding: 30px 0px;
 	display: flex;
