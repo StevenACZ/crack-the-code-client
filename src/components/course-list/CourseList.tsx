@@ -35,7 +35,12 @@ const CourseList: React.FC<CourseListProps> = () => {
 	const error = useSelector(selectCourseListError);
 
 	useEffect(() => {
-		dispatch(listCourses());
+		dispatch(
+			listCourses({
+				name: '',
+				duration: 0,
+			})
+		);
 	}, [dispatch]);
 
 	return (
