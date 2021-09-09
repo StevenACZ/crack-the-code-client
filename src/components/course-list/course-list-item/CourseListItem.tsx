@@ -82,25 +82,27 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 
 					{/* hasDiscount? */}
 					{has_discount && (
-						<div>
+						<>
 							<p>DESCUENTO DEL {parseInt(discount_percentage)}%</p>
-							{!(parseInt(amount_after_discount_usd) === 0) && (
-								<CoursePrice
-									price={parseInt(amount_after_discount_usd)}
-									discount_price={parseInt(amount_usd)}
-									badge="usd"
-									size="2"
-								/>
-							)}
-							{!(parseInt(amount_after_discount_pen) === 0) && (
-								<CoursePrice
-									price={parseInt(amount_after_discount_pen)}
-									discount_price={parseInt(amount_pen)}
-									badge="pen"
-									size="2"
-								/>
-							)}
-						</div>
+							<Price>
+								{!(parseInt(amount_after_discount_usd) === 0) && (
+									<CoursePrice
+										price={parseInt(amount_after_discount_usd)}
+										discount_price={parseInt(amount_usd)}
+										badge="usd"
+										size="1"
+									/>
+								)}
+								{!(parseInt(amount_after_discount_pen) === 0) && (
+									<CoursePrice
+										price={parseInt(amount_after_discount_pen)}
+										discount_price={parseInt(amount_pen)}
+										badge="pen"
+										size="1"
+									/>
+								)}
+							</Price>
+						</>
 					)}
 
 					{/* nextStartDate? */}
