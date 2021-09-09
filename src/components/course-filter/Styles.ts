@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const CourseFilterStyled = styled.ul`
+export const CourseFilterStyled = styled.section`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	margin: 20px 0;
 
 	@media (max-width: 1200px) {
@@ -9,5 +12,6 @@ export const CourseFilterStyled = styled.ul`
 
 	@media (max-width: 375px) {
 		padding: 0 10px;
+		display: block;
 	}
 `;
