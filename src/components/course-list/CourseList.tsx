@@ -18,6 +18,9 @@ import {
 	selectCourseSearchName,
 } from '../../redux/slices/courseSearch';
 
+// Content loader
+import ContentLoader from 'react-content-loader';
+
 // Styles
 import { CourseListStyled } from './Styles';
 
@@ -54,7 +57,18 @@ const CourseList: React.FC<CourseListProps> = () => {
 						))}
 				</CourseListStyled>
 			)}
-			{loading && <h1>Loading...</h1>}
+			{loading && (
+				<ContentLoader
+					viewBox="0 0 400 160"
+					height={400}
+					width={'100%'}
+					backgroundColor="transparent"
+				>
+					<circle cx="150" cy="86" r="8" />
+					<circle cx="194" cy="86" r="8" />
+					<circle cx="238" cy="86" r="8" />
+				</ContentLoader>
+			)}
 			{error && <h1>{error}</h1>}
 		</>
 	);
