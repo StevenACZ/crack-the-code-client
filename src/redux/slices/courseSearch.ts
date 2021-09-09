@@ -16,19 +16,16 @@ export const courseSearchSlice = createSlice({
 	name: 'courseSearch',
 	initialState,
 	reducers: {
-		courseSearchRequest: state => {
-			state.name = '';
-			state.duration = 0;
-		},
-		courseSearchSuccess: (state, action) => {
-			console.log(action);
+		courseSearchSendName: (state, action) => {
 			state.name = action.payload;
-			state.duration = 0;
+		},
+		courseSearchSendDuration: (state, action) => {
+			state.duration = action.payload;
 		},
 	},
 });
 
-export const { courseSearchRequest, courseSearchSuccess } =
+export const { courseSearchSendName, courseSearchSendDuration } =
 	courseSearchSlice.actions;
 
 export const selectCourseSearchName = (state: RootState) =>
