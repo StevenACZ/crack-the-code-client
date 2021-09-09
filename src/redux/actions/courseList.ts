@@ -12,8 +12,7 @@ import {
 } from '../slices/courseList';
 
 export const listCourses =
-	({ name, duration }: { name?: string; duration?: number }) =>
-	async (dispatch: any) => {
+	(name?: string, duration?: number) => async (dispatch: any) => {
 		try {
 			dispatch(courseListRequest());
 
