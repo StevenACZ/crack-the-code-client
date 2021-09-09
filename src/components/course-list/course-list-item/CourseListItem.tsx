@@ -110,7 +110,7 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 						</p>
 					)}
 
-					<p>Duración: {parseInt(duration)} meses</p>
+					<p>Duración: {parseFloat(duration)} meses</p>
 				</BodyBottom>
 			</Body>
 		</CourseListItemStyled>

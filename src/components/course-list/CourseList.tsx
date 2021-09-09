@@ -13,6 +13,10 @@ import {
 	selectCourseListLoading,
 	selectCourseListError,
 } from '../../redux/slices/courseList';
+import {
+	selectCourseSearchDuration,
+	selectCourseSearchName,
+} from '../../redux/slices/courseSearch';
 
 // Styles
 import { CourseListStyled } from './Styles';
@@ -31,17 +35,19 @@ const CourseList: React.FC<CourseListProps> = () => {
 
 	// Selector
 	const courses = useSelector(selectCourseListCourses);
+	const name = useSelector(selectCourseSearchName);
+	const duration = useSelector(selectCourseSearchDuration);
 	const loading = useSelector(selectCourseListLoading);
 	const error = useSelector(selectCourseListError);
 
 	useEffect(() => {
 		dispatch(
 			listCourses({
-				name: '',
-				duration: 0,
+				name,
+				duration,
 			})
 		);
-	}, [dispatch]);
+	}, [dispatch, name, duration]);
 
 	return (
 		<>
