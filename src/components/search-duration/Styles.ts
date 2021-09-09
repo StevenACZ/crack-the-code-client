@@ -1,12 +1,27 @@
 import styled from 'styled-components';
 
-export const SearchDurationStyled = styled.ul`
-	/* display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-	grid-column-gap: 24px;
-	grid-row-gap: 40px; */
+export const SearchDurationStyled = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+
+	& > label {
+		& > span {
+			margin-left: 3px;
+		}
+	}
+
+	& > label:not(:last-child) {
+		margin-right: 10px;
+	}
 
 	@media (max-width: 1200px) {
+		width: 100%;
+		justify-content: center;
+		margin-top: 20px;
+
+		& > label {
+			margin-bottom: 10px;
+		}
 	}
 
 	@media (max-width: 375px) {

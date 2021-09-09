@@ -53,10 +53,10 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 					checked={selectDuration.checked === 0}
 					onChange={handleChange}
 				/>
-				Reset
+				<span>Reset</span>
 			</label>
 
-			{uniqueDurations &&
+			{uniqueDurations.length > 0 ? (
 				uniqueDurations.map(uniqueDuration => (
 					<label key={uniqueDuration}>
 						<input
@@ -66,9 +66,12 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 							checked={selectDuration.checked === parseFloat(uniqueDuration)}
 							onChange={handleChange}
 						/>
-						{uniqueDuration}
+						<span>{uniqueDuration} Meses</span>
 					</label>
-				))}
+				))
+			) : (
+				<h1>Loading...</h1>
+			)}
 		</SearchDurationStyled>
 	);
 };
