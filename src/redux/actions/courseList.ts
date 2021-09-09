@@ -1,6 +1,9 @@
 // Axios
 import axios from '../../axios/index';
 
+// Interfaces
+import { ReqResCourse } from '../../interfaces/reqResCourse.interfaces';
+
 // Redux - Slices
 import {
 	courseListRequest,
@@ -8,14 +11,40 @@ import {
 	courseListFail,
 } from '../slices/courseList';
 
-export const listCourses = () => async (dispatch: any) => {
-	try {
-		dispatch(courseListRequest());
+export const listCourses =
+	({ name, duration }: { name?: string; duration?: number }) =>
+	async (dispatch: any) => {
+		try {
+			dispatch(courseListRequest());
 
-		const { data } = await axios.get(`/courses`);
+			const { data } = await axios.get<ReqResCourse[]>(`/courses`);
 
-		dispatch(courseListSuccess(data));
-	} catch (error: any) {
-		dispatch(courseListFail('Error: No data'));
-	}
-};
+			if (name || duration) {
+				let filteredCourses: ReqResCourse[] = [];
+
+				if (name && duration) {
+					filteredCourses = data.filter(
+						course =>
+							course.name.includes(name) &&
+							parseInt(course.duration) === duration
+					);
+				} else {
+					if (name) {
+						filteredCourses = data.filter(course => course.name.includes(name));
+					}
+
+					if (duration) {
+						filteredCourses = data.filter(
+							course => parseInt(course.duration) === duration
+						);
+					}
+				}
+
+				dispatch(courseListSuccess(filteredCourses));
+			} else {
+				dispatch(courseListSuccess(data));
+			}
+		} catch (error: any) {
+			dispatch(courseListFail('Error: No data'));
+		}
+	};
