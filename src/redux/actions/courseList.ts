@@ -24,13 +24,15 @@ export const listCourses =
 				if (name && duration) {
 					filteredCourses = data.filter(
 						course =>
-							course.name.includes(name) &&
+							course.name
+								.toLocaleLowerCase()
+								.includes(name.toLocaleLowerCase()) &&
 							parseFloat(course.duration) === duration
 					);
 				} else {
 					if (name) {
 						filteredCourses = data.filter(course =>
-							course.name.toLocaleLowerCase().includes(name)
+							course.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())
 						);
 					}
 
