@@ -7,6 +7,7 @@ import { HomeScreenStyled } from './Styles';
 // Components
 import Banner from '../components/banner/Banner';
 import CourseList from '../components/course-list/CourseList';
+import CourseFilter from '../components/course-filter/CourseFilter';
 
 interface HomeProps {}
 
@@ -19,6 +20,7 @@ const HomeScreen: React.FC<HomeProps> = () => {
 					demanda laboral."
 			/>
 
+			<CourseFilter />
 			<CourseList />
 		</HomeScreenStyled>
 	);
