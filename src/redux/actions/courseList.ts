@@ -29,7 +29,9 @@ export const listCourses =
 					);
 				} else {
 					if (name) {
-						filteredCourses = data.filter(course => course.name.includes(name));
+						filteredCourses = data.filter(course =>
+							course.name.toLocaleLowerCase().includes(name)
+						);
 					}
 
 					if (duration) {
