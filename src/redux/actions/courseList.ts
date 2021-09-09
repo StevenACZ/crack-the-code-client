@@ -26,7 +26,7 @@ export const listCourses =
 					filteredCourses = data.filter(
 						course =>
 							course.name.includes(name) &&
-							parseInt(course.duration) === duration
+							parseFloat(course.duration) === duration
 					);
 				} else {
 					if (name) {
@@ -35,7 +35,7 @@ export const listCourses =
 
 					if (duration) {
 						filteredCourses = data.filter(
-							course => parseInt(course.duration) === duration
+							course => parseFloat(course.duration) === duration
 						);
 					}
 				}
