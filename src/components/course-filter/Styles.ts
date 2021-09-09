@@ -8,6 +8,7 @@ export const CourseFilterStyled = styled.section`
 
 	@media (max-width: 1200px) {
 		padding: 0 20px;
+		display: block;
 	}
 
 	@media (max-width: 375px) {
