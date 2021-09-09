@@ -3,10 +3,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // Redux - Slices
 import courseListSlice from '../slices/courseList';
+import courseSearchSlice from '../slices/courseSearch';
 
 const store = configureStore({
 	reducer: {
 		courseList: courseListSlice.reducer,
+		courseSearch: courseSearchSlice.reducer,
 	},
 });
 
