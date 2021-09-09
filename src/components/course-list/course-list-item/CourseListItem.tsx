@@ -16,6 +16,7 @@ import {
 	BodyTop,
 	BodyBottom,
 	Free,
+	Price,
 } from './Styles';
 
 // Components
@@ -59,7 +60,7 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 					) : (
 						<>
 							{!has_discount && (
-								<div>
+								<Price>
 									{!(parseInt(amount_usd) === 0) && (
 										<CoursePrice
 											price={parseInt(amount_usd)}
@@ -74,7 +75,7 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 											size="1"
 										/>
 									)}
-								</div>
+								</Price>
 							)}
 						</>
 					)}

@@ -74,3 +74,9 @@ export const Free = styled.h4`
 	color: red;
 	margin: 0;
 `;
+
+export const Price = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
