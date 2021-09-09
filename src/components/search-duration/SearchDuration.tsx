@@ -32,7 +32,7 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 	});
 
 	const [selectDuration, setSelectDuration] = useState<{ checked: number }>({
-		checked: 0,
+		checked: -1,
 	});
 
 	const handleChange = (e: any) => {

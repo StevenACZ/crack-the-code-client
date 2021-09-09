@@ -5,6 +5,8 @@ export const SearchDurationStyled = styled.div`
 	flex-wrap: wrap;
 
 	& > label {
+		cursor: pointer;
+
 		& > span {
 			margin-left: 3px;
 		}
