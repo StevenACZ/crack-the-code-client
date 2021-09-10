@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const CourseListItemStyled = styled.li`
-	border-radius: 10px;
-	overflow: hidden;
-
 	@media (max-width: 1200px) {
 		padding: 0 20px;
 	}
@@ -14,8 +11,11 @@ export const CourseListItemStyled = styled.li`
 `;
 
 export const Header = styled.header`
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	overflow: hidden;
 	width: 100%;
-	height: 160px;
+	height: 80px;
 	background-color: #e8eaf0;
 	position: relative;
 	cursor: pointer;
@@ -23,6 +23,8 @@ export const Header = styled.header`
 	& > img {
 		position: absolute;
 		width: 100%;
+		height: 100%;
+		object-fit: cover;
 		top: 0;
 		left: 0;
 		right: 0;
