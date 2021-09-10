@@ -31,13 +31,19 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 	discount_percentage,
 	amount_after_discount_usd,
 	amount_after_discount_pen,
-	// thumbnail,
+	thumbnail,
 	next_start_date,
 	duration,
 }) => {
+	console.log(thumbnail?.replace('statics', 'statics-prod'));
+
 	return (
 		<CourseListItemStyled>
-			<Header>{/* {thumbnail && <img src={thumbnail!} alt="asd" />} */}</Header>
+			<Header>
+				{thumbnail && (
+					<img src={thumbnail?.replace('statics', 'statics-prod')!} alt="asd" />
+				)}
+			</Header>
 
 			<Body>
 				<BodyTop>
