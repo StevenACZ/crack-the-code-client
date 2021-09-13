@@ -35,8 +35,6 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 	next_start_date,
 	duration,
 }) => {
-	console.log(thumbnail?.replace('statics', 'statics-prod'));
-
 	return (
 		<CourseListItemStyled>
 			<Header>
@@ -65,16 +63,17 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 						<Free>GRATIS</Free>
 					) : (
 						<>
+							{/* Show normal price */}
 							{!has_discount && (
 								<Price>
-									{!(parseInt(amount_usd) === 0) && (
+									{parseInt(amount_usd) > 0 && (
 										<CoursePrice
 											price={parseInt(amount_usd)}
 											badge="usd"
 											size="1"
 										/>
 									)}
-									{!(parseInt(amount_pen) === 0) && (
+									{parseInt(amount_pen) > 0 && (
 										<CoursePrice
 											price={parseInt(amount_pen)}
 											badge="pen"
@@ -91,7 +90,7 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 						<>
 							<p>DESCUENTO DEL {parseInt(discount_percentage)}%</p>
 							<Price>
-								{!(parseInt(amount_after_discount_usd) === 0) && (
+								{parseInt(amount_after_discount_usd) > 0 && (
 									<CoursePrice
 										price={parseInt(amount_after_discount_usd)}
 										discount_price={parseInt(amount_usd)}
@@ -99,7 +98,7 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 										size="1"
 									/>
 								)}
-								{!(parseInt(amount_after_discount_pen) === 0) && (
+								{parseInt(amount_after_discount_pen) > 0 && (
 									<CoursePrice
 										price={parseInt(amount_after_discount_pen)}
 										discount_price={parseInt(amount_pen)}
@@ -114,12 +113,14 @@ const CourseListItem: React.FC<ReqResCourse> = ({
 					{/* nextStartDate? */}
 					{next_start_date && (
 						<p>
-							Fecha de inicio:{' '}
-							{moment(next_start_date).locale('es').format(`D [de] MMMM`)}
+							Fecha de inicio: {moment(next_start_date).format(`D [de] MMMM`)}
 						</p>
 					)}
 
-					<p>Duración: {parseFloat(duration)} meses</p>
+					<p>
+						Duración: {parseFloat(duration)}{' '}
+						{parseFloat(duration) > 1 ? 'Meses' : 'Mes'}
+					</p>
 				</BodyBottom>
 			</Body>
 		</CourseListItemStyled>

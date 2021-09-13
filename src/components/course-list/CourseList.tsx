@@ -38,10 +38,11 @@ const CourseList: React.FC<CourseListProps> = () => {
 
 	// Selector
 	const courses = useSelector(selectCourseListCourses);
-	const name = useSelector(selectCourseSearchName);
-	const duration = useSelector(selectCourseSearchDuration);
 	const loading = useSelector(selectCourseListLoading);
 	const error = useSelector(selectCourseListError);
+
+	const name = useSelector(selectCourseSearchName);
+	const duration = useSelector(selectCourseSearchDuration);
 
 	useEffect(() => {
 		dispatch(listCourses(name, duration));
@@ -55,6 +56,7 @@ const CourseList: React.FC<CourseListProps> = () => {
 						courses.map((course: ReqResCourse) => (
 							<CourseListItem key={course.slug} {...course} />
 						))}
+					{courses.length === 0 && <span>Sin resultados...</span>}
 				</CourseListStyled>
 			)}
 			{loading && (
@@ -62,14 +64,14 @@ const CourseList: React.FC<CourseListProps> = () => {
 					viewBox="0 0 400 160"
 					height={400}
 					width={'100%'}
-					backgroundColor="transparent"
+					backgroundColor="black"
 				>
 					<circle cx="150" cy="86" r="8" />
 					<circle cx="194" cy="86" r="8" />
 					<circle cx="238" cy="86" r="8" />
 				</ContentLoader>
 			)}
-			{error && <h1>{error}</h1>}
+			{error && <span>{error}</span>}
 		</>
 	);
 };
