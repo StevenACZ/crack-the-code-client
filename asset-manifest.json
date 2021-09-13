@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/crack-the-code-client/static/js/main.efc266bd.chunk.js",
-    "main.js.map": "/crack-the-code-client/static/js/main.efc266bd.chunk.js.map",
+    "main.js": "/crack-the-code-client/static/js/main.19345e80.chunk.js",
+    "main.js.map": "/crack-the-code-client/static/js/main.19345e80.chunk.js.map",
     "runtime-main.js": "/crack-the-code-client/static/js/runtime-main.a6b0fc33.js",
     "runtime-main.js.map": "/crack-the-code-client/static/js/runtime-main.a6b0fc33.js.map",
     "static/js/2.c0e0b9b6.chunk.js": "/crack-the-code-client/static/js/2.c0e0b9b6.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.a6b0fc33.js",
     "static/js/2.c0e0b9b6.chunk.js",
-    "static/js/main.efc266bd.chunk.js"
+    "static/js/main.19345e80.chunk.js"
   ]
 }
