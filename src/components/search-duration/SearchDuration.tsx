@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Redux - Actions
-import { sendDuration } from '../../redux/actions/courseSearch';
+import { sendDuration, sendName } from '../../redux/actions/courseSearch';
 
 // Redux - Slices
 import { selectCourseListCourses } from '../../redux/slices/courseList';
@@ -19,11 +19,12 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 	// Dispatch
 	const dispatch = useDispatch();
 
-	// Selector
+	// Selector | Get only courses duration
 	const durations = useSelector(selectCourseListCourses)?.map(
 		course => course.duration
 	);
 
+	// Remove duplicate values
 	let uniqueDurations: string[] = [];
 	durations?.forEach(c => {
 		if (!uniqueDurations.includes(c)) {
@@ -32,7 +33,7 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 	});
 
 	const [selectDuration, setSelectDuration] = useState<{ checked: number }>({
-		checked: -1,
+		checked: 0,
 	});
 
 	const handleChange = (e: any) => {
@@ -43,35 +44,36 @@ const SearchDuration: React.FC<SearchDurationProps> = () => {
 		dispatch(sendDuration(parseFloat(e.target.value)));
 	};
 
+	const reset = () => {
+		setSelectDuration({
+			checked: 0,
+		});
+
+		dispatch(sendDuration(0));
+		dispatch(sendName(''));
+	};
+
 	return (
 		<SearchDurationStyled>
-			<label>
-				<input
-					type="radio"
-					value={0}
-					name="duration"
-					checked={selectDuration.checked === 0}
-					onChange={handleChange}
-				/>
-				<span>Reset</span>
-			</label>
+			<button onClick={reset}>Reset</button>
 
-			{uniqueDurations.length > 0 ? (
-				uniqueDurations.map(uniqueDuration => (
-					<label key={uniqueDuration}>
-						<input
-							type="radio"
-							value={parseFloat(uniqueDuration)}
-							name="duration"
-							checked={selectDuration.checked === parseFloat(uniqueDuration)}
-							onChange={handleChange}
-						/>
-						<span>{uniqueDuration} Meses</span>
-					</label>
-				))
-			) : (
-				<h1>Loading...</h1>
-			)}
+			{uniqueDurations.length > 0
+				? uniqueDurations.map(uniqueDuration => (
+						<label key={uniqueDuration}>
+							<input
+								type="radio"
+								value={parseFloat(uniqueDuration)}
+								name="duration"
+								checked={selectDuration.checked === parseFloat(uniqueDuration)}
+								onChange={handleChange}
+							/>
+							<span>
+								{parseFloat(uniqueDuration)}{' '}
+								{parseFloat(uniqueDuration) >= 1.5 ? 'Meses' : 'Mes'}
+							</span>
+						</label>
+				  ))
+				: null}
 		</SearchDurationStyled>
 	);
 };
