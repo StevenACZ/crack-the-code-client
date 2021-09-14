@@ -11,8 +11,14 @@ import {
 	courseListFail,
 } from '../slices/courseList';
 
+interface ListCoursesProps {
+	name?: string;
+	duration?: number;
+}
+
 export const listCourses =
-	(name?: string, duration?: number) => async (dispatch: any) => {
+	({ name, duration }: ListCoursesProps) =>
+	async (dispatch: any) => {
 		try {
 			dispatch(courseListRequest());
 
